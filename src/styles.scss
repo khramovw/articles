@@ -1,1 +1,76 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+}
+body {
+  background: linear-gradient(to left, #212227 1.47%, #0F1016 100%), #C4C4C4;
+  padding: 0;
+  margin: 0;
+  //min-height: 100vh;
+  font: normal 400 calc( 100vw / 1920 * 16 )/1 'Montserrat', serif;
+}
+input {
+  outline: none;
+}
+h1 {
+  margin: 0;
+}
+.gradient {
+  &-brown {
+    background: -webkit-linear-gradient(left, #B57F3A 16.57%, #F5C176 49.72%, #BF945D 75.14%);
+    background: -o-linear-gradient(left, #B57F3A 16.57%, #F5C176 49.72%, #BF945D 75.14%);
+    background: linear-gradient(90deg, #B57F3A 16.57%, #F5C176 49.72%, #BF945D 75.14%);
+  }
+  &-blue-green {
+    background: -webkit-linear-gradient(left, #1DA8EB 0%, #89CA70 100%);
+    background: -o-linear-gradient(left, #1DA8EB 0%, #89CA70 100%);
+    background: linear-gradient(90deg, #1DA8EB 0%, #89CA70 100%);
+  }
+  &-four-color {
+    background: -webkit-gradient(linear, left top, right top, from(#FB8A00), color-stop(35%, #F11370), color-stop(75%, #1DA8EB), to(#89CA70));
+    background: -webkit-linear-gradient(left, #FB8A00 0%, #F11370 35%, #1DA8EB 75%, #89CA70 100%);
+    background: -o-linear-gradient(left, #FB8A00 0%, #F11370 35%, #1DA8EB 75%, #89CA70 100%);
+    background: linear-gradient(90deg, #FB8A00 0%, #F11370 35%, #1DA8EB 75%, #89CA70 100%);
+  }
+}
+
+.text {
+  &-shadow {
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.33);
+  }
+  &-gradient {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+}
+.btn {
+  border: transparent;
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: inherit;
+  &:active {
+    box-shadow: inset 0 10px 34px rgba(0, 0, 0, 0.6);
+  }
+
+  &-regular {
+    text-align: center;
+    display: inline-block;
+    font-size: 1em;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    padding: .625em 2.875em;
+    border-radius: inherit;
+    background: linear-gradient(91.01deg, #25262B -1.83%, #1A1B20 99.72%);
+    box-shadow: 0 5px 22px rgba(0, 0, 0, 0.6);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+  }
+}
+.button-wrapper {
+  display: inline-block;
+  padding: 1px;
+  border-radius: 46px;
+  width: fit-content;
+}
