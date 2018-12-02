@@ -1,48 +1,81 @@
-<div class="wrapper">
 
-  <h1 class="text-shadow">Registration</h1>
+<div class="panel">
+  <div class="wrapper">
 
-  <form>
+    <h1 class="text-shadow">Registration</h1>
 
-    <div class="form-group">
-      <div class="input-wrapper">
-        <input
-          class="form-control"
-          type="email"
-          placeholder="Enter Your Email"
-          id="email"
-        >
-        <label for="email">Email</label>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <div class="input-wrapper" [ngClass]="{'error-validate': form.get('email').invalid && form.get('email').touched}">
+          <input
+            class="form-control"
+            type="email"
+            placeholder="Enter Your Email"
+            id="email"
+            formControlName="email"
+          >
+          <label for="email">Email</label>
+
+          <span class="mesage-error" *ngIf="form.get('email').invalid && form.get('email').touched">
+          <span  *ngIf="form.get('email')['errors']['required']">This field must be filled.</span>
+          <span *ngIf="form.get('email')['errors']['email']">Example youremail@mail.com.</span>
+          <span *ngIf="form.get('email')['errors']['forbiddenemail']">This email is already taken.</span>
+        </span>
+
+        </div>
+        <div class="input-wrapper" [ngClass]="{'error-validate': form.get('password').invalid && form.get('password').touched}">
+          <input
+            class="form-control"
+            type="password"
+            placeholder="Enter Your Password"
+            id="password"
+            formControlName="password"
+          >
+          <label for="password">Password</label>
+
+          <span class="mesage-error" *ngIf="form.get('password').invalid && form.get('password').touched">
+          <span *ngIf="form.get('password')['errors']['required']">This field must be filled.</span>
+          <span *ngIf="form.get('password')['errors']['minlength'] && form.get('password')['errors']['minlength']['requiredLength']">
+            Enter {{form.get('password')['errors']['minlength']['actualLength']}} of
+            {{form.get('password')['errors']['minlength']['requiredLength']}} characters.
+          </span>
+        </span>
+
+        </div>
+        <div class="input-wrapper" [ngClass]="{'error-validate': form.get('name').invalid && form.get('name').touched}">
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Enter Your Name"
+            id="name"
+            formControlName="name"
+          >
+          <label for="name">Name</label>
+        </div>
+        <div class="input-wrapper agree" [ngClass]="{'error-validate': form.get('agree').invalid && form.get('agree').touched}">
+          <input
+            class="form-control"
+            type="checkbox"
+            id="agree"
+            formControlName="agree"
+          >
+          <label for="agree">I agree to the terms</label>
+        </div>
+
+        <div class="button-wrapper gradient-brown ">
+          <button class="gradient-brown btn-regular btn" [disabled]="form.invalid">
+            <span class="gradient-brown text-gradient">Registration</span>
+          </button>
+        </div>
+
       </div>
-      <div class="input-wrapper">
-        <input
-          class="form-control"
-          type="password"
-          placeholder="Enter Your Password"
-          id="password"
-        >
-        <label for="password">Password</label>
-      </div>
-      <div class="input-wrapper">
-        <input
-          class="form-control"
-          type="password"
-          placeholder="Enter Your Password"
-          id="confirm_pass"
-        >
-        <label for="confirm_pass">Confirm Password</label>
-      </div>
-      <div class="button-wrapper gradient-brown ">
-        <button class="gradient-brown btn-regular btn">
-          <span class="gradient-brown text-gradient">Login</span>
-        </button>
-      </div>
+    </form>
+    <div class="setings">already registered? <a class="gradient-four-color text-gradient" routerLink="/login"> login</a></div>
 
-    </div>
-  </form>
-  <div class="setings">already registered? <a class="gradient-four-color text-gradient" routerLink="/login"> login</a></div>
-
+  </div>
 </div>
+
 
 
 

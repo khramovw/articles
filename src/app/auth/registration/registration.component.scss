@@ -1,35 +1,92 @@
 
-
+.panel {
+  border-radius: .75em;
+  background-color: #212227;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2em;
+  color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 .6875em 2.0625em rgba(0, 0, 0, 0.44);
+  letter-spacing: 0.03em;
+  height: 40em;
+  width: 24em;
+  margin: 4% auto 0;
+  display: flex;
+  justify-content: center;
+}
 .wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   height: 100%;
+  width: 100%;
+}
+form {
+  width: 100%;
+  padding: 0 2em;
 }
 .form-group {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: inherit;
 
   .input-wrapper {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1.5em;
+    margin-bottom: 1.75em;
+    position: relative;
+    width: inherit;
+
+    &.agree {
+      flex-direction: row;
+      align-items: center;
+
+      label {
+        margin: 0;
+        position: relative;
+        padding-left: 2em;
+        cursor: pointer;
+
+        &::before {
+          content: '';
+          display: block;
+          width: 1em;
+          height: 1em;
+          background: radial-gradient( #F5C176 50%,#B57F3A );
+          position: absolute;
+          left: 0;
+        }
+
+      }
+      input {
+        display: none;
+        user-select: initial;
+
+        &:checked {
+          & + label {
+            background: linear-gradient(90deg, #1DA8EB 0%, #9bcac9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            &::before {
+              background: #1DA8EB ;
+            }
+          }
+        }
+      }
+    }
   }
 }
 .form-control {
-  width: 18em;
-  font-size: 18px;
-  //font-size: 1em;
+  font-size: 1.125em;
   color: #FFFFFF;
   background-color: #C6C6C7;
-  border-radius: 44px;
+  border-radius: 2.75em;
   border: 1px solid #C6C6C7;
   box-shadow: none;
-  height: 44px;
-  padding: 0 20px;
+  height: 2.75em;
+  padding: 0 1.25em;
   order: 2;
 
 
@@ -49,3 +106,29 @@
 
   }
 }
+.mesage-error {
+  color: red;
+  font-size: .75em;
+  order: 3;
+  position: absolute;
+  bottom: -1.5em;
+}
+.alert {
+  height: .5em;
+  font-size: 1em;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .5s linear;
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    transition: all .5s linear;
+  }
+  &.danger {
+    color: red;
+  }
+  &.succes {
+    color: green;
+  }
+}
+

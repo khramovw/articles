@@ -1,55 +1,57 @@
-<div class="wrapper">
 
-  <h1 class="text-shadow">Login</h1>
+<div class="panel">
+  <div class="wrapper">
 
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h1 class="text-shadow">Login</h1>
+    <span [ngClass]="{'show': message.text, 'danger': message.type === 'danger', 'succes': message.type === 'succes'}" class="alert">{{message.text}}</span>
 
-    <div class="form-group">
-      <div class="input-wrapper" [ngClass]="{'error-validate': form.get('email').invalid && form.get('email').touched}">
-        <input
-          class="form-control"
-          type="email"
-          placeholder="Enter Your Email"
-          id="email"
-          formControlName="email"
-        >
-        <label [ngClass]="{'text-gradient gradient-blue-green': !form.get('email').invalid}" for="email">Email</label>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-        <span class="mesage-error" *ngIf="form.get('email').invalid && form.get('email').touched">
+      <div class="form-group">
+        <div class="input-wrapper" [ngClass]="{'error-validate': form.get('email').invalid && form.get('email').touched}">
+          <input
+            class="form-control"
+            type="email"
+            placeholder="Enter Your Email"
+            id="email"
+            formControlName="email"
+          >
+          <label [ngClass]="{'text-gradient gradient-blue-green': !form.get('email').invalid}" for="email">Email</label>
+
+          <span class="mesage-error" *ngIf="form.get('email').invalid && form.get('email').touched">
           <span  *ngIf="form.get('email')['errors']['required']">This field must be filled.</span>
           <span *ngIf="form.get('email')['errors']['email']">example youremail@mail.com.</span>
         </span>
-      </div>
-      <div
-        class="input-wrapper"
-        [ngClass]="{'error-validate': form.get('password').invalid && form.get('password').touched}"
-      >
-        <input
-          class="form-control"
-          type="password"
-          placeholder="Enter Your Password"
-          id="password"
-          formControlName="password"
+        </div>
+        <div class="input-wrapper"
+             [ngClass]="{'error-validate': form.get('password').invalid && form.get('password').touched}"
         >
-        <label [ngClass]="{'text-gradient gradient-blue-green': !form.get('password').invalid}" for="password">Password</label>
+          <input
+            class="form-control"
+            type="password"
+            placeholder="Enter Your Password"
+            id="password"
+            formControlName="password"
+          >
+          <label [ngClass]="{'text-gradient gradient-blue-green': !form.get('password').invalid}" for="password">Password</label>
 
-        <span class="mesage-error" *ngIf="form.get('password').invalid && form.get('password').touched">
+          <span class="mesage-error" *ngIf="form.get('password').invalid && form.get('password').touched">
           <span *ngIf="form.get('password')['errors']['required']">This field must be filled.</span>
           <span *ngIf="form.get('password')['errors']['minlength']">
             Enter {{form.get('password')['errors']['minlength']['actualLength']}} of
             {{form.get('password')['errors']['minlength']['requiredLength']}} characters.
           </span>
         </span>
+        </div>
+        <div class="button-wrapper gradient-brown ">
+          <button class="gradient-brown btn-regular btn" [disabled]="form.invalid">
+            <span class="gradient-brown text-gradient">Login</span>
+          </button>
+        </div>
       </div>
-      <div class="button-wrapper gradient-brown ">
-        <button class="gradient-brown btn-regular btn" [disabled]="form.invalid">
-          <span class="gradient-brown text-gradient">Login</span>
-        </button>
-      </div>
-    </div>
-  </form>
-  <div class="setings">no registration? <a class="gradient-four-color text-gradient" routerLink="/registration"> registration</a></div>
+    </form>
+    <div class="setings">no registration? <a class="gradient-four-color text-gradient" routerLink="/registration"> registration</a></div>
 
+  </div>
 </div>
-
 
