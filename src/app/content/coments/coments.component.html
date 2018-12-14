@@ -1,0 +1,8 @@
+<div *ngFor="let comment of comments" class="gradient-four-color wrapper">
+  <div *ngIf="comment" class="comments panel">
+    <h3 class="title">{{ comment.title }}</h3>
+    <p>{{comment.content}}</p>
+  </div>
+</div>
+
+

@@ -5,24 +5,24 @@ import { Observable } from 'rxjs';
 // Models
 import { User } from '../Models/user.model';
 
+// Base Api
+import { BaseApi } from '../../content/share/config/base-api';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
-  apiUrl = 'http://localhost:4400/';
-  usersByEmail;
-  createUser;
+export class UsersService extends BaseApi {
 
-
-  constructor( private http: HttpClient) { }
-
-  getUserByEmail ( email: string): Observable<User> {
-    this.usersByEmail = this.http.get(`${this.apiUrl}users?email=${email}`);
-    return this.usersByEmail;
+  constructor( public http: HttpClient ) {
+    super( http );
   }
-  createNewUser (user: User): Observable<User> {
-    this.createUser = this.http.post(`${this.apiUrl}users`, user);
-    return this.createUser;
+
+  // The method returns one user given email.
+  getUserByEmail ( email: string ): Observable <User> {
+    return this.get(false, `users?email=${email}`);
+  }
+  // The method creates a user.
+  createNewUser (user: User): Observable <User> {
+    return this.post(false, 'users', user );
   }
 }

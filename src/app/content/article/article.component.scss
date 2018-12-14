@@ -1,0 +1,49 @@
+
+.articles {
+  margin-bottom: 5em;
+  ul {
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-top: 5.25em;
+  }
+}
+.panel {
+  height: 12em;
+  width: 28em;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em 2em 2em;
+
+  a {
+    text-align: left;
+    width: 100%;
+  }
+}
+.title {
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 1em;
+  min-height: 2em;
+  color: white;
+}
+.description {
+  font-size: 1em;
+  text-align: left;
+  font-weight: 300;
+  font-family: 'Roboto', serif;
+  line-height: 1.2;
+
+}
+
+
+
+
+
+
+
+
+

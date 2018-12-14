@@ -1,0 +1,11 @@
+
+<section class="articles">
+  <ul>
+    <li class="panel wrapper" *ngFor="let article of articles">
+      <div class="title">{{ article.title }}</div>
+      <div class="description">{{ article.content | slicetext:0:85:'...' }}</div>
+      <a [routerLink]="['/article', article.id, article.title]" class="text-gradient gradient-blue-green">{{ 'more' | uppercase }}</a>
+    </li>
+  </ul>
+</section>
+

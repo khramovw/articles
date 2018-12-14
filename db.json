@@ -1,0 +1,25 @@
+{
+  "setings": {
+    "start": "json-server --watch db.json -p 4400"
+  },
+  "users": [
+    {
+      "email": "test@test.com",
+      "name": "Test",
+      "password": "123456",
+      "id": 1
+    },
+    {
+      "email": "bogoslov.studio@gmail.com",
+      "name": "dfsfsdf",
+      "password": "sdfjhgfjgf",
+      "id": 2
+    },
+    {
+      "email": "teat@teat.com",
+      "name": "name",
+      "password": "123456",
+      "id": 3
+    }
+  ]
+}

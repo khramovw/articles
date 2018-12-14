@@ -1,0 +1,13 @@
+<header class="panel ">
+  <nav>
+    <div class="logo" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <a routerLink="/article">
+        <img src="assets/img/ng.png" alt="">
+      </a>
+    </div>
+    <div class="bread-crumbs text-gradient gradient-blue-green">
+      {{titleurl}}
+    </div>
+  </nav>
+  <div class="logout text-gradient gradient-blue-green" (click)="logout()">Log out</div>
+</header>

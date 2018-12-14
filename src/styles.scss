@@ -6,14 +6,18 @@ body {
   background: linear-gradient(to left, #212227 1.47%, #0F1016 100%), #C4C4C4;
   padding: 0;
   margin: 0;
-  //min-height: 100vh;
-  font: normal 400 calc( 100vw / 1920 * 16 )/1 'Montserrat', serif;
+  font: normal 400 calc( 100vw / 1920 * 16 )/1 'Roboto', serif;
 }
 input {
   outline: none;
 }
 h1 {
   margin: 0;
+}
+ul, ol{
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .gradient {
@@ -82,4 +86,44 @@ h1 {
   padding: 1px;
   border-radius: 46px;
   width: fit-content;
+}
+.panel {
+  border-radius: .75em;
+  background-color: #212227;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
+  color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 .6875em 2.0625em rgba(0, 0, 0, 0.44);
+  letter-spacing: 0.03em;
+  margin: 4% auto 0;
+  display: flex;
+  justify-content: center;
+}
+.setings {
+  margin-top: 1em;
+}
+.mesage-error {
+  color: red;
+  font-size: .75em;
+  order: 3;
+  position: absolute;
+  bottom: -1.5em;
+}
+.alert {
+  height: 1.2em;
+  font-size: 1.2em;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .5s linear;
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    transition: all .5s linear;
+  }
+  &.danger {
+    color: red;
+  }
+  &.succes {
+    color: green;
+  }
 }

@@ -1,3 +1,20 @@
+# JSON server
+
+To use install `npm install -g json-server` .
+Use a `db.json` file with some data or create new `db.json` file.
+
+Start JSON Server `json-server --watch db.json -p 4400`.
+
+To change the default port `:3000` use flag `-p`.
+
+Now if you go to http://localhost:4400/users, you'll get:
+
+`[{ "id": 1, "name": "Test", "email": "test@test.com", "password": "123456" }]`
+
+
+Get a full fake REST API with zero coding in less than 30 seconds (seriously)
+`https://github.com/typicode/json-server`.
+
 # OpenCinema
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
