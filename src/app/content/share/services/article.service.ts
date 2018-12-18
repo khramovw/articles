@@ -7,6 +7,7 @@ import { Article } from '../../../share/Models/article';
 
 // Base Api
 import {BaseApi} from '../config/base-api';
+import {filter, map} from 'rxjs/operators';
 
 
 @Injectable({
@@ -23,7 +24,7 @@ export class ArticleService extends BaseApi {
     return this.get(true, 'article');
   }
   // The method returns the article on which the click occurred.
-  getArticlePage (id: number): Observable <Article> {
+  getArticlePage (id?: number): Observable <Article> {
     return this.get(true, `article/${id}`);
   }
 }

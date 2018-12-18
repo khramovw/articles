@@ -53,6 +53,7 @@ export class LoginComponent implements OnInit {
 
     // Check entered email
     this.usersService.getUserByEmail(this.formData.email).subscribe( ( user ) => {
+      console.log('user login: ', user);
       const el: User = user[0];
       if ( el ) {
         // Check entered  password

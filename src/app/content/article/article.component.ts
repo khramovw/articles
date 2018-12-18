@@ -5,6 +5,7 @@ import { Article} from '../../share/Models/article';
 
 // Services
 import { ArticleService } from '../share/services/article.service';
+import {finalize} from 'rxjs/operators';
 
 
 @Component({
@@ -16,13 +17,21 @@ export class ArticleComponent implements OnInit {
 
   articles;
   title;
+  networksLoaded = false;
 
   constructor(
     private articleservice: ArticleService,
   ) { }
 
   ngOnInit() {
+    console.log('networksLoaded start', this.networksLoaded);
     // I get all the articles.
-    this.articleservice.getArticles().subscribe( (articles: Article[]) => this.articles = articles);
+    this.articleservice.getArticles()
+      .pipe(finalize(() => {
+        this.networksLoaded = true;
+      }))
+      .subscribe( (articles: Article[]) => {
+        this.articles = articles;
+      }, error => console.log(error));
   }
 }

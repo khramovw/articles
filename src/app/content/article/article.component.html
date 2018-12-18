@@ -1,11 +1,17 @@
 
-<section class="articles">
+<section *ngIf="networksLoaded; else download" class="articles">
   <ul>
     <li class="panel wrapper" *ngFor="let article of articles">
       <div class="title">{{ article.title }}</div>
       <div class="description">{{ article.content | slicetext:0:85:'...' }}</div>
-      <a [routerLink]="['/article', article.id, article.title]" class="text-gradient gradient-blue-green">{{ 'more' | uppercase }}</a>
+      <a [routerLink]="['/article', article.id, article.title]" class="text-gradient gradient-blue-green article">{{ 'more' | uppercase }}</a>
     </li>
   </ul>
 </section>
 
+<ng-template #download>
+  <div class="wrapper-preloader">
+    <p class="text-gradient gradient-four-color">Loading </p>
+    <img src="assets/img/preload-ico.png" alt="" class="preloader">
+  </div>
+</ng-template>

@@ -13,9 +13,6 @@ import { BaseApi } from '../config/base-api';
   providedIn: 'root'
 })
 export class CommentsService extends BaseApi {
-
-  comments;
-
   constructor( public http: HttpClient ) {
     super( http );
   }
