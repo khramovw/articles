@@ -9,6 +9,7 @@ import { AuthService } from '../../share/services/auth.service';
 // Models
 import { User } from '../../share/Models/user.model';
 import { Message } from '../../share/Models/message.model';
+import {filter, map} from 'rxjs/operators';
 
 
 @Component({
@@ -52,13 +53,12 @@ export class LoginComponent implements OnInit {
     this.formData = this.form.value;
 
     // Check entered email
-    this.usersService.getUserByEmail(this.formData.email).subscribe( ( user ) => {
-      console.log('user login: ', user);
-      const el: User = user[0];
-      if ( el ) {
+    this.usersService.getUserByEmail(this.formData.email)
+      .subscribe( ( user ) => {
+      if ( user ) {
         // Check entered  password
-        if ( el.password === this.formData.password) {
-          window.localStorage.setItem('user', JSON.stringify(el));
+        if ( user.password === this.formData.password) {
+          window.localStorage.setItem('user', JSON.stringify( user ));
 
           // authorize the user
           this.authservice.login();
