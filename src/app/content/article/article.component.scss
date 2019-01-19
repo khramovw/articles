@@ -39,7 +39,14 @@
 
 }
 
-
+@media screen and (max-width: 991px){
+  .articles ul {
+    margin-top: 6.25em;
+  }
+  .wrapper {
+    padding: 1em 1em 2em;
+  }
+}
 
 
 

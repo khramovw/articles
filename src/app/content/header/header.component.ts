@@ -1,9 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute, ParamMap, Params, Router} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 // Services
 import {AuthService} from '../../share/services/auth.service';
 import {ArticleService} from '../share/services/article.service';
+import {finalize} from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -21,9 +22,11 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.rout.params.subscribe( (params: Params) => {
+    this.rout.params
+      .pipe(finalize(() => true))
+      .subscribe( (params: Params) => {
       this.title = params['title'];
-      console.log(params);
+      console.log('params heder: ', params);
     },error => console.log(error));
   }
   logout() {

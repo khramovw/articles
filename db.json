@@ -20,6 +20,12 @@
       "name": "name",
       "password": "123456",
       "id": 3
+    },
+    {
+      "email": "test@test",
+      "name": null,
+      "password": null,
+      "id": 4
     }
   ]
 }

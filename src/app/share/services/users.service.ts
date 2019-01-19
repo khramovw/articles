@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 // Models
 import { User } from '../Models/user.model';
 
 // Base Api
 import { BaseApi } from '../../content/share/config/base-api';
-import {filter, map} from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'

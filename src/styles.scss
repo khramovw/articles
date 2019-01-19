@@ -176,3 +176,22 @@ ul, ol{
     transform: rotate(360deg);
   }
 }
+
+@media screen and (max-width: 991px){
+  body {
+    font-size: 1rem;
+  }
+  .panel {
+    width: 86vw !important;
+  }
+  header.panel {
+    width: 100% !important;
+  }
+  .panel.wrapper,
+  .panel.article{
+    height: auto !important;
+  }
+  .gradient-four-color.wrapper {
+    width: fit-content;
+  }
+}

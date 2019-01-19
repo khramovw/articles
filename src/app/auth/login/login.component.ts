@@ -9,7 +9,6 @@ import { AuthService } from '../../share/services/auth.service';
 // Models
 import { User } from '../../share/Models/user.model';
 import { Message } from '../../share/Models/message.model';
-import {filter, map} from 'rxjs/operators';
 
 
 @Component({
@@ -54,7 +53,7 @@ export class LoginComponent implements OnInit {
 
     // Check entered email
     this.usersService.getUserByEmail(this.formData.email)
-      .subscribe( ( user ) => {
+      .subscribe( ( user: User ) => {
       if ( user ) {
         // Check entered  password
         if ( user.password === this.formData.password) {
