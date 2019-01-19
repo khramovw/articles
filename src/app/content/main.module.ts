@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 
 // Routing
 import { MainRoutingModule } from './main-routing.module';
 
 // Modules
 import { ShareModule } from '../share/share.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 // Pipes
 import { SlicetextPipe } from './share/pipes/slicetext.pipe';
@@ -22,7 +24,9 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     CommonModule,
     MainRoutingModule,
-    ShareModule
+    ShareModule,
+    BrowserModule,
+    NgxPaginationModule
   ],
   declarations: [
     MainComponent,

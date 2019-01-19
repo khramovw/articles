@@ -1,6 +1,6 @@
 
 .articles {
-  margin-bottom: 5em;
+  margin: 5em 0 5em;
   ul {
     display: inline-flex;
     flex-wrap: wrap;
@@ -10,6 +10,7 @@
 .panel {
   height: 12em;
   width: 28em;
+  margin: 1em;
 }
 .wrapper {
   display: flex;
@@ -41,7 +42,7 @@
 
 @media screen and (max-width: 991px){
   .articles ul {
-    margin-top: 6.25em;
+    margin-top: 2.25em;
   }
   .wrapper {
     padding: 1em 1em 2em;

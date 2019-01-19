@@ -182,7 +182,20 @@ ul, ol{
     transform: rotate(360deg);
   }
 }
-
+.pagination .current,
+.ngx-pagination a,
+.ngx-pagination button,
+.ngx-pagination .disabled,
+.ngx-pagination.responsive .small-screen {
+  color: white !important;
+  font-size: 1.5em;
+  outline: none;
+}
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2em;
+}
 @media screen and (max-width: 991px){
   body {
     font-size: 1rem;

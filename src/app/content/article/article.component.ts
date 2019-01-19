@@ -18,6 +18,7 @@ export class ArticleComponent implements OnInit {
   articles;
   title;
   networksLoaded = false;
+  p: number = 1;
 
   constructor(
     private articleservice: ArticleService,
