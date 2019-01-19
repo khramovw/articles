@@ -6,7 +6,13 @@ body {
   background: linear-gradient(to left, #212227 1.47%, #0F1016 100%), #C4C4C4;
   padding: 0;
   margin: 0;
-  font: normal 400 calc( 100vw / 1920 * 16 )/1 'Roboto', serif;
+  //font: normal 400 calc( 100vw / 1920 * 16 )/1 'Roboto', serif;
+  font-size: calc( 100vw / 1920 * 16 );
+  line-height: 1;
+  font-family: 'Roboto', serif;
+  font-weight: 400;
+  font-style: normal;
+
 }
 input {
   outline: none;
