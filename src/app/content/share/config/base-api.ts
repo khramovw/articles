@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 
 import { environment } from '../../../../environments/environment.prod';
 import { Observable } from 'rxjs';
+import { retry, tap } from 'rxjs/operators';
 
 // This class is designed to optimize the code.
 @Injectable()
@@ -10,6 +11,7 @@ export class BaseApi {
 
   baseUrl: string = environment.config.baseUrl;
   authUrl: string = environment.config.authUrl;
+  authUrlReqres: string = environment.config.authUrlReqres;
   urlvar: string;
 
   constructor (public http: HttpClient) {}
@@ -17,7 +19,7 @@ export class BaseApi {
   // The first argument helps determine URL API.
   // The second argument optional specifies the end of the URL address.
   private getUrl (config: boolean, url: string) {
-    return config ? this.urlvar = this.baseUrl + url : this.urlvar = this.authUrl + url;
+    return config ? this.urlvar = this.baseUrl + url : this.urlvar = this.authUrlReqres + url;
   }
   // Method performs a Get request.
   public get (config: boolean, url: string = ''): Observable <any> {

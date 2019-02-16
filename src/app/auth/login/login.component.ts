@@ -9,6 +9,7 @@ import { AuthService } from '../../share/services/auth.service';
 // Models
 import { User } from '../../share/Models/user.model';
 import { Message } from '../../share/Models/message.model';
+import {tap} from 'rxjs/operators';
 
 
 @Component({
@@ -51,34 +52,52 @@ export class LoginComponent implements OnInit {
     // Data entered in the form.
     this.formData = this.form.value;
 
+    // Auth user
+    this.usersService.authUser(this.formData)
+      .subscribe( (user: {token: string} )=> {
+        console.log('user token', user);
+
+        localStorage.setItem('user', JSON.stringify({email: this.formData.email, token: user.token}));
+        // After I sent the data I answer the forum
+        this.form.reset();
+
+        // authorize the user
+        this.authservice.login();
+
+        // and it redirects to the page of articles.
+        this.router.navigate(['/', 'article']);
+
+      }, error => console.error(error));
+
     // Check entered email
-    this.usersService.getUserByEmail(this.formData.email)
-      .subscribe( ( user: User ) => {
-      if ( user ) {
-        // Check entered  password
-        if ( user.password === this.formData.password) {
-          window.localStorage.setItem('user', JSON.stringify( user ));
-
-          // authorize the user
-          this.authservice.login();
-
-          // and it redirects to the page of articles.
-          this.router.navigate(['/', 'article']);
-
-        } else {
-          // If the password is invalid I will post a message
-          this.showMessage('Password is incorrect', 'danger');
-          return false;
-        }
-      } else {
-        // If the email is invalid I will post a message
-        this.showMessage('Email is incorrect', 'danger');
-      }
-    }, error => {
-      // If the server does not respond, I will post a message
-        error.url === null ? this.router.navigate(['/message-page'], {queryParams: {url: false}}) :
-          this.router.navigate(['/message-page'], {queryParams: {registered: false}});
-    });
+    // this.usersService.getUserByEmail(this.formData.email)
+    //   .subscribe( ( user: User ) => {
+    //   if ( user ) {
+    //     // Check entered  password
+    //     if ( user.password === this.formData.password) {
+    //       // window.localStorage.setItem('user', JSON.stringify( user ));
+    //
+    //       // authorize the user
+    //       this.authservice.login();
+    //
+    //       // and it redirects to the page of articles.
+    //       this.router.navigate(['/', 'article']);
+    //
+    //     } else {
+    //       // If the password is invalid I will post a message
+    //       this.showMessage('Password is incorrect', 'danger');
+    //       return false;
+    //     }
+    //   } else {
+    //     // If the email is invalid I will post a message
+    //     this.showMessage('Email is incorrect', 'danger');
+    //   }
+    // }, error => {
+    //   // If the server does not respond, I will post a message
+    //     error.url === null
+    //       ? this.router.navigate(['/message-page'], {queryParams: {url: false}})
+    //       : this.router.navigate(['/message-page'], {queryParams: {registered: false}});
+    // });
   }
 
   // Function output message.

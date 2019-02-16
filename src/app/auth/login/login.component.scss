@@ -29,6 +29,7 @@ form {
   }
 }
 .form-control {
+  width: 100%;
   font-size: 1.125em;
   color: #FFFFFF;
   background-color: #C6C6C7;
@@ -38,7 +39,6 @@ form {
   height: 2.75em;
   padding: 0 1.25em;
   order: 2;
-
 
   &:focus {
     border-color: #525252;
@@ -51,4 +51,10 @@ form {
   }
 }
 
+@media screen and (max-width: 991px){
 
+  .form-control {
+    padding: 1em;
+  }
+
+}

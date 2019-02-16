@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
 
 // Models
 import { User } from '../Models/user.model';
@@ -26,4 +26,16 @@ export class UsersService extends BaseApi {
   createNewUser (user: User): Observable <User> {
     return this.post(false, 'users', user );
   }
+  // Auth reqres.in
+  authUser ( user: User ): Observable <{token: string}> {
+    return this.post(false, `/login`, user)
+      .pipe(
+        tap(res => {
+          // if ( res.token ) localStorage.setItem('auth_token', res.token);
+          if ( res.token ) sessionStorage.setItem('auth_token', res.token);
+          if ( res.token ) localStorage.setItem('user', JSON.stringify({token: res.token}));
+        })
+      )
+  }
 }
+
