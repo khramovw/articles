@@ -15,6 +15,9 @@ Now if you go to http://localhost:4400/users, you'll get:
 Get a full fake REST API with zero coding in less than 30 seconds (seriously)
 `https://github.com/typicode/json-server`.
 
+# Git Pages
+https://khramovw.github.io/articles/
+
 # OpenCinema
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
