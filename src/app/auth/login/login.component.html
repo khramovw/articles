@@ -3,7 +3,15 @@
   <div class="wrapper">
 
     <h1 class="text-shadow">Login</h1>
-    <span [ngClass]="{'show': message.text, 'danger': message.type === 'danger', 'succes': message.type === 'succes'}" class="alert">{{message.text}}</span>
+    <span class="text-gradient gradient-blue-green">fake api auth from <a href="https://reqres.in/" target="_blank" class="gradient-four-color text-gradient">reqres.in</a></span>
+    <span [ngClass]="{
+      'show': message.text,
+      'danger': message.type === 'danger',
+      'succes': message.type === 'succes'
+      }"
+      class="alert">
+        {{message.text}}
+    </span>
 
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
