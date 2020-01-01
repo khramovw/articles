@@ -4,12 +4,14 @@
   ul {
     display: inline-flex;
     flex-wrap: wrap;
+    justify-content: space-around;
     margin-top: 5.25em;
   }
 }
 .panel {
   height: 12em;
-  width: 28em;
+  //width: 28em;
+  width: 31%;
   margin: 1em;
 }
 .wrapper {
@@ -37,18 +39,30 @@
   font-weight: 300;
   font-family: 'Roboto', serif;
   line-height: 1.2;
+  margin-bottom: 1em;
 
 }
 
 @media screen and (max-width: 991px){
   .articles ul {
     margin-top: 2.25em;
+
+    li {
+      margin: 1em auto;
+
+      .title {
+        min-height: unset;
+      }
+
+      a {
+        text-align: right;
+      }
+    }
   }
   .wrapper {
     padding: 1em 1em 2em;
   }
 }
-
 
 
 

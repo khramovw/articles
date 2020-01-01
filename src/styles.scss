@@ -95,15 +95,22 @@ ul, ol{
 }
 .panel {
   border-radius: .75em;
-  background-color: #212227;
+  background: linear-gradient(167.44deg, #25262B -4.2%, #1A1B20 115.47%);
   font-family: 'Roboto', sans-serif;
   font-size: 1.2em;
   color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 .6875em 2.0625em rgba(0, 0, 0, 0.44);
+  box-shadow: 0 1em 2.75em rgba(0, 0, 0, 0.5);
   letter-spacing: 0.03em;
   margin: 4% auto 0;
   display: flex;
   justify-content: center;
+  transition: all .2s;
+
+  &:hover {
+    background: linear-gradient(167.44deg, #32343D -4.2%, #20222B 115.47%);
+    box-shadow: 0 1em 3.75em rgba(0, 0, 0, 0.7);
+    transition: all .2s;
+  }
 }
 .setings {
   margin-top: 1em;
@@ -135,13 +142,21 @@ ul, ol{
 }
 .wrapper-preloader {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   margin: auto;
+  margin-top: 10em;
 
   & p {
     font-weight: 500;
     font-size: 2em;
     color: #fff;
+    height: fit-content;
+    margin: 0 1em;
+  }
+
+  img {
+    margin: 0;
   }
 }
 .preloader {
@@ -221,5 +236,10 @@ ul, ol{
   }
   .panel {
     margin: 4% auto;
+  }
+  .pagination {
+    & > * {
+      margin: auto;
+    }
   }
 }

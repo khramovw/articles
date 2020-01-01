@@ -14,10 +14,24 @@
 .comments {
   min-height: 4em;
   align-items: flex-start;
-  width: 40em;
-  padding: 1em 2em 2em;
+  width: 48em;
+  padding: 1em 4em 2em;
   margin: 2em auto;
+  background: linear-gradient(90.89deg, #25262B -1.84%, #1A1B20 99.7%);
+  box-shadow: 0 .18em .43em rgba(0, 0, 0, 0.5);
+  border-radius: 1em;
+
+  &.panel {
+    height: auto;
+  }
 }
 .title {
   margin-bottom: 1em;
+}
+
+@media screen and (max-width: 991px){
+  .comments {
+    width: 100%;
+    padding: 1em 0;
+  }
 }

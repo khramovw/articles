@@ -1,5 +1,5 @@
 
-<section *ngIf="networksLoaded; else download" class="articles">
+<section *ngIf="networksLoaded" class="articles">
   <ul>
     <li class="panel wrapper" *ngFor="let article of articles | paginate: { itemsPerPage: 12, currentPage: p }">
       <div class="title">{{ article.title }}</div>
@@ -9,11 +9,11 @@
   </ul>
 </section>
 
-<pagination-controls class="pagination" responsive="true"  (pageChange)="p = $event"></pagination-controls>
+<pagination-controls class="pagination" responsive="true" (pageChange)="p = $event"></pagination-controls>
 
-<ng-template #download>
+<div *ngIf="!networksLoaded">
   <div class="wrapper-preloader">
     <p class="text-gradient gradient-four-color">Loading </p>
     <img src="assets/img/preload-ico.png" alt="" class="preloader">
   </div>
-</ng-template>
+</div>

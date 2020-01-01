@@ -1,4 +1,5 @@
 <header class="panel ">
+
   <nav>
     <div class="logo" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
       <a routerLink="/article">
@@ -6,6 +7,12 @@
       </a>
     </div>
   </nav>
-  <div class="title">Fake Rest API ( <a href="https://jsonplaceholder.typicode.com/" class="gradient-four-color text-gradient" target="_blank">jsonplaceholder</a> )</div>
+
+  <div class="title">
+    Fake Rest API
+    <a href="https://jsonplaceholder.typicode.com/" class="gradient-four-color text-gradient" target="_blank">jsonplaceholder</a>
+  </div>
+
   <div class="logout text-gradient gradient-blue-green" (click)="logout()">Log out</div>
+
 </header>

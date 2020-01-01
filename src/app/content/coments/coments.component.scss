@@ -6,6 +6,9 @@
 .title {
   margin: 0;
 }
+.comments-list {
+  margin-bottom: 1em;
+}
 .wrapper {
   border-radius: .75em;
   padding: 1px;
@@ -14,4 +17,16 @@
 .panel {
   margin: 0;
   border-radius: .6em;
+}
+
+@media screen and(max-width: 991px){
+  .comments {
+    padding: 1em 1em 1em;
+  }
+  .wrapper {
+    margin: 1em auto;
+  }
+  .comments-list {
+    padding-left: 1em;
+  }
 }
