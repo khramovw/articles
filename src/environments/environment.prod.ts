@@ -4,5 +4,6 @@ export const environment = {
     authUrlReqres: 'https://reqres.in/api',
     authUrl: 'http://localhost:4400/',
     baseUrl: 'http://angular-assessment.digio.ch/api/',
+    fakeApi: 'https://jsonplaceholder.typicode.com/'
   }
 };

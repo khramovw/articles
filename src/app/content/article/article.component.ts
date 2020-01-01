@@ -32,6 +32,7 @@ export class ArticleComponent implements OnInit {
         this.networksLoaded = true;
       }))
       .subscribe( (articles: Article[]) => {
+        console.log('articles', articles);
         this.articles = articles;
       }, error => console.log(error));
   }

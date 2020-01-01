@@ -39,7 +39,7 @@ export class ArticlePageComponent implements OnInit {
       .subscribe( (article: Article) => {
       this.article = article;
       this.title = this.article.title;
-      this.content = this.article.content;
+      this.content = this.article.body;
     });
   }
 }

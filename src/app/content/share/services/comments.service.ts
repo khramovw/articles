@@ -19,6 +19,6 @@ export class CommentsService extends BaseApi {
 
   // get comments on the article
   getComents (id: number): Observable <Comment[]> {
-    return this.get( true, `article/${id}/comment`);
+    return this.get( true, `comments?postId=${id}`);
   }
 }

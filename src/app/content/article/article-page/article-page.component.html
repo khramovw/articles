@@ -1,12 +1,15 @@
 <div *ngIf="networksLoaded; else download" class="wrapper">
+
   <section class="panel article">
     <h1 class="title">{{title}}</h1>
     <div class="description">{{content}}</div>
   </section>
+
   <section class="comments">
     <h2 class="title text-gradient gradient-blue-green">Comments:</h2>
     <app-coments [articleid]="id"></app-coments>
   </section>
+
 </div>
 
 <ng-template #download>

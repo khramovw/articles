@@ -18,9 +18,12 @@
           >
           <label [ngClass]="{'text-gradient gradient-blue-green': !form.get('email').invalid}" for="email">Email</label>
 
+        <!-- Message errors-->
           <span class="mesage-error" *ngIf="form.get('email').invalid && form.get('email').touched">
           <span  *ngIf="form.get('email')['errors']['required']">This field must be filled.</span>
           <span *ngIf="form.get('email')['errors']['email']">example youremail@mail.com.</span>
+         <!-- /Message errors-->
+
         </span>
         </div>
         <div class="input-wrapper"

@@ -41,10 +41,11 @@ export class LoginComponent implements OnInit {
         this.showMessage( 'You need to login', 'danger' );
       }
     });
+
     // form validation
     this.form = new FormGroup({
-      'email': new FormControl(null, [Validators.required, Validators.email]),
-      'password': new FormControl(null, [Validators.required, Validators.minLength(6)]),
+      'email': new FormControl('eve.holt@reqres.in', [Validators.required, Validators.email]),
+      'password': new FormControl('cityslicka', [Validators.required, Validators.minLength(6)]),
     });
   }
 
@@ -55,7 +56,6 @@ export class LoginComponent implements OnInit {
     // Auth user
     this.usersService.authUser(this.formData)
       .subscribe( (user: {token: string} )=> {
-        console.log('user token', user);
 
         localStorage.setItem('user', JSON.stringify({email: this.formData.email, token: user.token}));
         // After I sent the data I answer the forum
@@ -69,35 +69,7 @@ export class LoginComponent implements OnInit {
 
       }, error => console.error(error));
 
-    // Check entered email
-    // this.usersService.getUserByEmail(this.formData.email)
-    //   .subscribe( ( user: User ) => {
-    //   if ( user ) {
-    //     // Check entered  password
-    //     if ( user.password === this.formData.password) {
-    //       // window.localStorage.setItem('user', JSON.stringify( user ));
-    //
-    //       // authorize the user
-    //       this.authservice.login();
-    //
-    //       // and it redirects to the page of articles.
-    //       this.router.navigate(['/', 'article']);
-    //
-    //     } else {
-    //       // If the password is invalid I will post a message
-    //       this.showMessage('Password is incorrect', 'danger');
-    //       return false;
-    //     }
-    //   } else {
-    //     // If the email is invalid I will post a message
-    //     this.showMessage('Email is incorrect', 'danger');
-    //   }
-    // }, error => {
-    //   // If the server does not respond, I will post a message
-    //     error.url === null
-    //       ? this.router.navigate(['/message-page'], {queryParams: {url: false}})
-    //       : this.router.navigate(['/message-page'], {queryParams: {registered: false}});
-    // });
+
   }
 
   // Function output message.

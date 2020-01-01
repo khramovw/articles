@@ -14,6 +14,7 @@ import { BaseApi } from '../../content/share/config/base-api';
   providedIn: 'root'
 })
 export class UsersService extends BaseApi {
+
   constructor( public http: HttpClient ) {
     super( http );
   }
@@ -30,10 +31,10 @@ export class UsersService extends BaseApi {
   authUser ( user: User ): Observable <{token: string}> {
     return this.post(false, `/login`, user)
       .pipe(
-        tap(res => {
+        tap( ({token}) => {
           // if ( res.token ) localStorage.setItem('auth_token', res.token);
-          if ( res.token ) sessionStorage.setItem('auth_token', res.token);
-          if ( res.token ) localStorage.setItem('user', JSON.stringify({token: res.token}));
+          if ( token ) sessionStorage.setItem('auth_token', token);
+          if ( token ) localStorage.setItem('user', JSON.stringify({token}));
         })
       )
   }

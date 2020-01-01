@@ -21,11 +21,11 @@ export class ArticleService extends BaseApi {
 
   // The method returns all articles.
   getArticles (): Observable <Article[]> {
-    return this.get(true, 'article');
+    return this.get(true, 'posts');
   }
   // The method returns the article on which the click occurred.
   getArticlePage (id?: number): Observable <Article> {
-    return this.get(true, `article/${id}`);
+    return this.get(true, `posts/${id}`);
   }
 }
 
